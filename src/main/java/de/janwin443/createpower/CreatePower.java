@@ -1,6 +1,8 @@
 package de.janwin443.createpower;
 
 import com.mojang.logging.LogUtils;
+import de.janwin443.createpower.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -24,6 +26,8 @@ public class CreatePower
     {
         IEventBus modEventBus = context.getModEventBus();
 
+        ModItems.register(modEventBus);
+
         modEventBus.addListener(this::commonSetup);
 
         // Register ourselves for server and other game events we are interested in
@@ -38,8 +42,8 @@ public class CreatePower
     {}
 
     // Add the example block item to the building blocks tab
-    private void addCreative(BuildCreativeModeTabContentsEvent event)
-    {
+    private void addCreative(BuildCreativeModeTabContentsEvent event) {
+        if(event.getTabKey() == CreativeModeTabs.INGREDIENTS) event.accept(ModItems.SAPPHIRE);
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
