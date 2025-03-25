@@ -1,0 +1,19 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "key": {
+      "#": {
+        "item": "forge:ingots/steel"
+      },
+      "I": {
+        "tag": "forge:ingots/iron"
+      }
+    },
+    "pattern": [
+      " I ",
+      "I#I",
+      " I "
+    ],
+    "result": {
+      "item": "forge:ingots/lead"
+    }
+  }
